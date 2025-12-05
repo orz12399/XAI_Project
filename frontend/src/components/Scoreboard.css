@@ -1,0 +1,46 @@
+.scoreboard {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(30, 30, 30, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #444;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    text-align: left;
+}
+
+.scoreboard h3 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.scores-grid {
+    display: grid;
+    gap: 8px;
+}
+
+.score-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 200px;
+}
+
+.agent-name {
+    font-size: 0.9rem;
+    color: #ddd;
+}
+
+.score-value {
+    font-weight: bold;
+    color: #646cff;
+    background: rgba(100, 108, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
