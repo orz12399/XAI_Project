@@ -50,7 +50,8 @@ async def agent_lime_advice(df):
     
     # 1. LLM Advice
     prompt = f"""
-    Based on the following past spending summary, suggest a budget for next month for each category.
+    Based on the following past spending summary, suggest a **Monthly Budget** for next month for each category.
+    Ensure all amounts represent a **Single Month**.
     Also provide specific advice on where to cut costs to save money.
     Return ONLY a JSON object: {{"budget": {{category: amount}}, "savings_advice": "string"}}.
     Spending Summary: {summary}
@@ -176,7 +177,8 @@ async def agent_standard_advice(df):
     if err: return {"error": err}
 
     prompt = f"""
-    Based on the following past spending summary, suggest a budget for next month.
+    Based on the following past spending summary, suggest a **Monthly Budget** for next month.
+    Ensure all amounts represent a **Single Month**.
     Also provide specific advice on where to cut costs to save money.
     Provide the output as a JSON object with keys: "budget" (dict of category: amount), "reason" (string explanation), and "savings_advice" (string).
     Spending Summary: {summary}
@@ -202,7 +204,8 @@ async def agent_cot_advice(df):
     if err: return {"error": err}
 
     prompt = f"""
-    Based on the following past spending summary, suggest a budget for next month.
+    Based on the following past spending summary, suggest a **Monthly Budget** for next month.
+    Ensure all amounts represent a **Single Month**.
     Think step by step. First analyze the spending habits, then consider savings, then propose the budget.
     Return JSON: {{"thoughts": "step-by-step analysis string", "budget": {{category: amount}}, "savings_advice": "string"}}
     Spending Summary: {summary}
@@ -229,7 +232,8 @@ async def agent_self_check_advice(df):
 
     # Step 1: Draft
     prompt1 = f"""
-    Draft a budget for next month based on: {summary}.
+    Draft a **Monthly Budget** for next month based on: {summary}.
+    Ensure all amounts represent a **Single Month**.
     Return JSON {{category: amount}}.
     """
     resp1 = model.generate_content(prompt1)
