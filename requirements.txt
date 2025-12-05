@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pandas
+openpyxl
+google-generativeai
+lime
+python-multipart
+scikit-learn
+numpy
+aiofiles
